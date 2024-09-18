@@ -1,6 +1,6 @@
 {
   "name": "dropdowndelamort",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "type": "module",
   "main": "dist/dropdown.umd.js",
   "module": "dist/dropdown.es.js",
