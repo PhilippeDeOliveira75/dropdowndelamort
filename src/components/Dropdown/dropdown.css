@@ -60,3 +60,7 @@
   background: #888;
   border-radius: 11px;
 }
+
+.hidden {
+  display: none;
+}

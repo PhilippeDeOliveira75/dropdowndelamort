@@ -15,7 +15,12 @@ function App() {
       </div>
       <h1>Vite + React</h1>
 
-      <Dropdown />
+      <Dropdown
+        id="my-dropdown"
+        selection={['Option 1', 'Option 2']}
+        defaultText="Select an option"
+        onChange={(selectedItem) => console.log(selectedItem)}
+      />
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}

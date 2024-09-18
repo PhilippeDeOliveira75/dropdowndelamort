@@ -1,31 +1,35 @@
-import React, { useState } from 'react'
-import './dropdown.css'
-import Vector from './vector.svg'
+import React, { useState } from 'react';
+import './dropdown.css';
+import Vector from './vector.svg';
 
-function Dropdown() {
+function Dropdown({
+  id,
+  selection = ['Option 1', 'Option 2', 'Option 3'],
+  defaultText = 'Choose an option',
+  buttonClass = 'dropdown-button',
+  listClass = 'dropdown-list',
+  itemClass = 'dropdown-item',
+  value,
+  onChange,
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(value || defaultText);
 
-  const selection = ['option 1', 'option 2', 'option 3']
-  const defaultText = "Choose an option"
-  const buttonClass = "dropdown-button"
-  const listClass = "dropdown-list"
-  const itemClass = "dropdown-item"
-
-  const [isOpen, setIsOpen] = useState(false)
-  const [selectedItem, setSelectedItem] = useState(defaultText)
-
-  const toggleDropdown = () => setIsOpen((prev) => !prev)
+  const toggleDropdown = () => setIsOpen((prev) => !prev);
 
   const handleItemClick = (item) => {
-    setSelectedItem(item);
-    setIsOpen(false);
-  }
+    setSelectedItem(item)
+    onChange(item)
+    setIsOpen(false)
+  };
 
   return (
-
     <div className="dropdown">
       <button
+        id={id ? `${id}-button` : undefined}
         className={`${buttonClass} ${isOpen ? 'active' : ''}`}
         onClick={toggleDropdown}
+        type="button"
       >
         {selectedItem}
         <img
@@ -36,11 +40,11 @@ function Dropdown() {
         />
       </button>
       {isOpen && (
-        <ul className={listClass}>
+        <ul id={id ? `${id}-list` : undefined} className={listClass}>
           {selection.map((item, index) => (
             <li
               key={index}
-              className={itemClass}
+              className={`${itemClass} ${item === selectedItem ? 'hidden' : ''}`}
               onClick={() => handleItemClick(item)}
             >
               {item}
@@ -48,11 +52,8 @@ function Dropdown() {
           ))}
         </ul>
       )}
-
     </div>
-
-  )
-
+  );
 }
 
-export default Dropdown
+export default Dropdown;
