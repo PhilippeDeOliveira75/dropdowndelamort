@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './dropdown.css';
+import 'dropdowndelamort/dist/style.css'
 import Vector from './vector.svg';
 
 function Dropdown({
