@@ -44,6 +44,7 @@ npm install dropdowndelamort
 
 ```javascript
 import Dropdown from 'dropdowndelamort';
+import 'dropdowndelamort/dist/style.css'
 import { useState } from 'react';
 
 function MyComponent() {
