@@ -4,6 +4,14 @@
   "type": "module",
   "main": "dist/dropdown.umd.js",
   "module": "dist/dropdown.es.js",
+  "author": "NeOz",
+  "license": "MIT",
+  "description": "A simple dropdown component for React",
+  "keywords": [
+    "react",
+    "dropdown",
+    "component"
+  ],
   "exports": {
     ".": {
       "import": "./dist/dropdown.es.js",
